@@ -26,10 +26,10 @@
   <link href="assets/css/style.css" rel="stylesheet">
 </head>
 
-<body>
+<body style="background-color: #5ba5a1;">
 
   <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top header-transparent">
+  <header id="header" class="fixed-top">
     <div class="container">
 
       <div class="logo float-left">
@@ -38,76 +38,41 @@
 
       <nav class="nav-menu float-right d-none d-lg-block">
         <ul>
-          <li class="active"><a href="#">Página Inicial</a></li>
+          <li><a href="index.html">Página Inicial</a></li>
           <li><a href="#">Bichinhos</a></li>
           <li><a href="#">Eventos</a></li>
           <li><a href="login.html">Login</a></li>
-          <li><a href="cadastro.html">Cadastro</a></li>
+          <li class="active"><a href="#">Cadastro</a></li>
         </ul>
       </nav>
 
     </div>
   </header>
 
-  <!-- ======= Hero No Slider ======= -->
-  <section id="hero-no-slider" class="d-flex justify-cntent-center align-items-center">
-    <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
-      <div class="row justify-content-center">
-        <div class="col-xl-8">
-          <h2>Bem-vindo ao Adota.ai</h2>
-          <p>Nossa missão é facilitar o processo de adoção de animais domésticos abandonados, fornecendo assim um lar para eles. Além disso, buscamos simplificar a divulgação de eventos voltados para adoção de animais.</p>
+  <main id="main" class="login">
+    <div class="wrapper fadeInDown">
+      <div id="formContent">
+        <!-- Tabs Titles -->
+    
+        <!-- Icon -->
+        <div class="fadeIn first">
+          <img src="assets/img/profile.png" style="padding-top: 10px; padding-bottom:10px; width:15%;" id="icon"/>
         </div>
+    
+        <!-- Login Form -->
+        <form>
+          <input type="text" id="login" class="fadeIn second" name="login" placeholder="usuario">
+          <input type="text" id="password" class="fadeIn third" name="login" placeholder="senha">
+          <input type="text" id="email" class="fadeIn fourth" name="login" placeholder="e-mail">
+          <input type="submit" style="background: #1e68b1; margin-top: 20px;" class="fadeIn fifth" value="Cadastrar">
+        </form>
+    
       </div>
     </div>
-  </section>
-
-  <main id="main">
-
-    <!-- ======= Seção de depoimentos======= -->
-    <section class="depoimentos">
-      <div class="container">
-
-        <div class="row">
-          <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up">
-            <div class="icon-box icon-box-yellow">
-              <div class="icon"><img src="assets/img/persons/zsmn.png" alt="" class="img-fluid"></div>
-              <h4 class="title"><a href=""></a>Zilde Neto</a></h4>
-              <p class="description">Depois de conhecer a plataforma, pude ter contato com diversos animais e optei por adotar o Billy, um poodle bem simpático que já é meu companheiro há 2 anos.</p>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon-box icon-box-yellow">
-              <div class="icon"><img src="assets/img/persons/vhms.png" alt="" class="img-fluid"></div>
-              <h4 class="title">Victor Hugo</h4>
-              <p class="description">Sempre tive vontade de ter um cachorro, quando conheci o Adota.ai não resisti e adotei logos dois cachorrinhos com quem convivo há alguns meses: o Bichinho e o Kevin.</p>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-            <div class="icon-box icon-box-yellow">
-              <div class="icon"><img src="assets/img/persons/vmmc2.png" alt="" class="img-fluid"></div>
-              <h4 class="title">Victor Miguel</h4>
-              <p class="description">Conheci e em seguida adotei o Thor graças ao Adota.ai. Sou muito grato à equipe e admiro muito o trabalho que eles realizam resgatando animais em situação de risco.</p>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-            <div class="icon-box icon-box-yellow">
-              <div class="icon"><img src="assets/img/persons/lam5.png" alt="" class="img-fluid"></div>
-              <h4 class="title">Lucas Ambrósio</h4>
-              <p class="description">Sherlock foi adotado pela minha família há 5 anos. Sempre indico o Adota.ai aos conhecidos e amigos que tenham interesse em adotar um companheirinho animal.</p>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
   </main>
 
   <!-- ======= Footer ======= -->
-  <footer id="footer">
+  <footer id="footer" style="bottom:0; position:absolute;">
 
     <div class="footer-top">
       <div class="container">
