@@ -565,6 +565,73 @@ section {
 .section-title p {
   margin-bottom: 0;
 }
+/*--------------------------------------------------------------
+# Carousel-item
+--------------------------------------------------------------*/
+.carouselExampleIndicators .carousel-control-prev, .carouselExampleIndicators .carousel-control-next {     
+  width: 200px;     height:200px; 
+}
+
+.carousel-item {
+  padding: 100px;
+  height: 100%;
+}
+
+/*--------------------------------------------------------------
+# Table-Card-Bichinhos
+--------------------------------------------------------------*/
+.table-card-bichinhos {
+  padding-top: 20px;
+}
+
+.card {
+  margin: 5%;
+  border-radius: 15px;
+  border-width: 10px;
+  border-color: #5ba5a1;
+  background-color: #75E3DE;
+}
+.card-body {
+  border-radius: 15px;
+  border-color: #000000;
+  box-shadow: 8px 8px 4px grey;
+}
+
+.card-img-top {
+  height: 115px;
+  width: 115px;
+  margin-left: 5px;
+  margin-right: 15px;
+}
+
+.card-title {
+  margin-top: -10px;
+}
+
+.card-text {
+  margin-top: 1px;
+  height: 1px;
+  font-size: 12px;
+}
+
+.icon-image {
+  height: 20px;
+  width: 20px;
+}
+
+.more-info-button {
+  background-color: #FAFF00;
+}
+
+.icon-image-button {
+  margin-top: -15px;
+  height: 20px;
+  width: 20px;
+}
+
+.button-text {
+  margin-top: 1px;
+}
 
 /*--------------------------------------------------------------
 # Depoimentos
