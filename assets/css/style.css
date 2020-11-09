@@ -634,6 +634,98 @@ section {
 }
 
 /*--------------------------------------------------------------
+# Table-Card-Eventos
+--------------------------------------------------------------*/
+.table-card-eventos {
+  padding-top: 15px;
+}
+
+.card-eventos {
+  margin: 50px;
+  width: 18rem;
+  height: 30rem;
+  border-radius: 15px;
+  border-width: 30px;
+  border-color: #5ba5a1;
+  background-color: #75E3DE;
+}
+
+.card-body-eventos{
+  height: 30rem;
+  border-radius: 15px;
+  border-color: #000000;
+  box-shadow: 8px 8px 4px grey;
+}
+
+.card-eventos-img-top {
+  height: 115px;
+  width: 17.5rem;
+  margin-top: 10px;
+  margin-left: 4px;
+  margin-right: 2px;
+  border-radius: 10px;
+}
+
+.event-date{
+  vertical-align: middle;
+  line-height: 90px;
+  text-align: center;
+  margin-left: 5px;
+  margin-right: 5px;
+  font-size: 20px;
+}
+
+.event-descript1-box {
+  margin-top: 5px;
+  margin-right: 5px;
+  height: 120px;
+  border-radius: 10px;
+  background-color: cadetblue;
+  box-shadow: 4px 4px 2px grey;
+}
+
+.event-descript1 {
+  margin-right: 5px;
+  text-align: center;
+}
+
+.event-descript2 {
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  font-size: 13px;
+}
+
+.event-photos {
+  margin-left: 6px;
+}
+
+.event-photo {
+  height: 90px;
+  width: 90px;
+  border-radius: 20%;
+}
+
+.event-date-box{
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  height: 90px;
+  border-radius: 10px;
+  background-color: cadetblue;
+  box-shadow: 4px 4px 2px grey;
+}
+
+.event-contact {
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: cadetblue;
+  border-radius: 15px;
+  margin-top: 8px;
+  box-shadow: 4px 4px 2px grey;
+}
+
+/*--------------------------------------------------------------
 # Depoimentos
 --------------------------------------------------------------*/
 .depoimentos {
