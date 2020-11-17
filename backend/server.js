@@ -30,7 +30,7 @@ app.get('/', (req, res) => {
 app.get('/pets', (req, res) => {
     db.collection('pets').find().toArray()
     .then(results => {
-    
+      res.json(results)
     })
     .catch(error => console.error(error))
 })
