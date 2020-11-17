@@ -13,14 +13,17 @@ app.use(bodyParser.json())
 app.use(express.static('public'))
 app.set('view engine', 'ejs')
 
+console.log(process.env.MONGO_USR)
+
 MongoClient.connect(process.env.MONGO_USR, { useUnifiedTopology: true })
   .then(client => {
     console.log('Connected to Database')
     db = client.db('adota-ai')
     pets = db.collection('pets')
-  })
+})
+.catch(error => console.error(error))
 
-app.listen(process.env.PORT || 5000, function() {
+app.listen(process.env.PORT || 3000, function() {
     console.log('listening')
 })
 
