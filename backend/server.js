@@ -13,7 +13,7 @@ app.use(bodyParser.json())
 app.use(express.static('public'))
 app.set('view engine', 'ejs')
 
-MongoClient.connect($MONGO_USR, { useUnifiedTopology: true })
+MongoClient.connect(process.env.MONGO_USR, { useUnifiedTopology: true })
   .then(client => {
     console.log('Connected to Database')
     db = client.db('adota-ai')
