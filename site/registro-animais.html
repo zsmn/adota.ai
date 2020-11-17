@@ -62,7 +62,7 @@
           </div>
       
           <!-- Login Form -->
-          <form action="https://adota-ai-backend.herokuapp.com/pets" method="POST">
+          <form action="#" id="desgraca">
             <input type="text" id="login" class="fadeIn second" name="login" placeholder="Usuário">
             <input type="text" id="password" class="fadeIn third" name="login" placeholder="Senha">
             <input type="text" id="email" class="fadeIn fourth" name="login" placeholder="E-mail">
@@ -77,9 +77,8 @@
             <input type="file" id="animal-foto1" name="Foto 1 Animal" style="margin-top: 5px; margin-bottom: 5px;">
             <input type="file" id="animal-foto2" name="Foto 2 Animal" style="margin-top: 5px; margin-bottom: 5px;">
             <input type="file" id="animal-foto3" name="Foto 3 Animal" style="margin-top: 5px; margin-bottom: 5px;">
-            <input type="submit" style="background: #1e68b1; margin-top: 20px;" class="fadeIn fifth" value="Registrar Animal">
+            <input type="submit" id="register-pet" style="background: #1e68b1; margin-top: 20px;" class="fadeIn fifth" value="Registrar Animal">
           </form>
-      
         </div>
       </div>
     </div>
@@ -148,6 +147,8 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="js/cadastro.js"></script>
 
 </body>
 

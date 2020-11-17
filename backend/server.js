@@ -49,7 +49,7 @@ app.options('/pets', (req, res) => {
 app.post('/pets', (req, res) => {
     pets.insertOne(req.body)
     .then(result => {
-        return res.send("Registered")
+        return res.status(200).send("Registered")
     })
     .catch(error => console.error(error))
 })
