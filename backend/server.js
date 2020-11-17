@@ -1,100 +1,67 @@
-// server.js
-const express = require('express');
-const bodyParser= require('body-parser')
-const MongoClient = require('mongodb').MongoClient
-const app = express();
-var db = null; 
-var pets = null;
+const Express = require("express");
+const BodyParser = require("body-parser");
+const MongoClient = require("mongodb").MongoClient;
+const ObjectId = require("mongodb").ObjectID;
+const CONNECTION_URL = process.env.MONGO_USR;
+const PORT = process.env.PORT || 3000;
+const DATABASE_NAME = "adota-ai";
 
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json())
 
-MongoClient.connect(process.env.MONGO_USR, { useUnifiedTopology: true })
-  .then(client => {
-    console.log('Connected to Database')
-    db = client.db('adota-ai')
-    pets = db.collection('pets')
-})
-.catch(error => console.error(error))
+var app = Express();
+app.use(BodyParser.json());
+app.use(BodyParser.urlencoded({ extended: true }));
+var database, collection;
 
-app.listen(process.env.PORT || 3000, function() {
-    console.log('Listening!')
-})
+app.listen(PORT, () => {
+    MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true }, (error, client) => {
+        if(error) {
+            throw error;
+        }
+        database = client.db(DATABASE_NAME);
+        petsCollection = database.collection("pets");
+        eventsCollection = database.collection("events");
+        console.log("Connected to `" + DATABASE_NAME + "`!");
+    });
+});
 
-app.get('/', (req, res) => {
-    
-})
+/// PETS 
+// POST
+app.post("/pets", (request, response) => {
+	petsCollection.insertOne(request.body, (error, result) => {
+		if(error){
+			return response.status(500).send(error);
+		}
+		response.send(result.result);
+	});
+});
 
-/// pets
-// get
-app.get('/pets', (req, res) => {
-    db.collection('pets').find().toArray()
-    .then(results => {
-      res.json(results)
-    })
-    .catch(error => console.error(error))
-})
+// GET
+app.get("/pets", (request, response) => {
+	petsCollection.find({}).toArray((error, result) => {
+		if(error){
+			return response.status(500).send(error);
+		}
+		response.send(result);
+	});
+});
 
-// options
-app.options('/pets', (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Request-Method', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET');
-    res.setHeader('Access-Control-Allow-Headers', '*');
-    
-    return res.send("Hello!")
-})
+/// EVENTS 
+// POST
+app.post("/events", (request, response) => {
+	eventsCollection.insertOne(request.body, (error, result) => {
+		if(error){
+			return response.status(500).send(error);
+		}
+		response.send(result.result);
+	});
+});
 
-// post
-app.post('/pets', (req, res) => {
-    pets.insertOne(req.body)
-    .then(result => {
-        return res.status(200).send("Registered")
-    })
-    .catch(error => console.error(error))
-})
-
-// put
-app.put('/pets', (req, res) => {
-
-})
-
-// delete
-app.delete('/pets', (req, res) => {
-
-})
-
-/// events
-// get
-app.get('/events', (req, res) => {
-    db.collection('events').find().toArray()
-    .then(results => {
-      res.json(results)
-    })
-    .catch(error => console.error(error))
-})
-
-// options
-app.options('/events', (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Request-Method', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET');
-    res.setHeader('Access-Control-Allow-Headers', '*');
-    
-    return res.send("Hello!")
-})
-
-// post
-app.post('/events', (req, res) => {
-
-})
-
-// put
-app.put('/events', (req, res) => {
-
-})
-
-// delete
-app.delete('/events', (req, res) => {
-
-})
+// GET
+app.get("/events", (request, response) => {
+	eventsCollection.find({}).toArray((error, result) => {
+		if(error){
+			return response.status(500).send(error);
+		}
+		response.send(result);
+	});
+});
