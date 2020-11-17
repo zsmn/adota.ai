@@ -41,6 +41,8 @@ app.options('/pets', (req, res) => {
     res.setHeader('Access-Control-Request-Method', '*');
     res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET');
     res.setHeader('Access-Control-Allow-Headers', '*');
+    
+    return res.status(420).send("Hello!")
 })
 
 // post
@@ -78,6 +80,8 @@ app.options('/events', (req, res) => {
     res.setHeader('Access-Control-Request-Method', '*');
     res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET');
     res.setHeader('Access-Control-Allow-Headers', '*');
+    
+    return res.status(420).send("Hello!")
 })
 
 // post
