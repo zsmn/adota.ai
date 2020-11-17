@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/pets', (req, res) => {
-    res.json(db.collection('pets').find().toJson())
+    res.json(db.collection('pets').find().pretty())
 })
 
 app.post('/pets', (req, res) => {
