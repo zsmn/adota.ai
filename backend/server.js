@@ -41,7 +41,11 @@ app.get('/pets', (req, res) => {
 
 // post
 app.post('/pets', (req, res) => {
-
+    pets.insertOne(req.body)
+    .then(result => {
+        console.log("Registered")
+    })
+    .catch(error => console.error(error))
 })
 
 // put
