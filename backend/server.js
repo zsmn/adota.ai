@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/pets', (req, res) => {
-    console.log(db.collection('pets').find().toArray())
+    res.json(db.collection('pets').find().toArray())
 })
 
 app.post('/pets', (req, res) => {
