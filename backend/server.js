@@ -28,14 +28,15 @@ app.get('/', (req, res) => {
 /// pets
 // get
 app.get('/pets', (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
     db.collection('pets').find().toArray()
+    .then(results => {
+    
+    })
     .catch(error => console.error(error))
 })
 
 // post
 app.post('/pets', (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
     pets.insertOne(req.body)
     .then(result => {
         console.log("Registered")
@@ -45,18 +46,17 @@ app.post('/pets', (req, res) => {
 
 // put
 app.put('/pets', (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
+
 })
 
 // delete
 app.delete('/pets', (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
+
 })
 
 /// events
 // get
 app.get('/events', (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
     db.collection('events').find().toArray()
     .then(results => {
       res.json(results)
@@ -66,15 +66,15 @@ app.get('/events', (req, res) => {
 
 // post
 app.post('/events', (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
+
 })
 
 // put
 app.put('/events', (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
+
 })
 
 // delete
 app.delete('/events', (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
+
 })
