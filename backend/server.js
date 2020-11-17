@@ -22,11 +22,15 @@ app.listen(process.env.PORT || 3000, function() {
 })
 
 app.get('/', (req, res) => {
-
+    db.collection('pets').find().toArray()
+    .then(results => {
+      res.json(results)
+    })
+    .catch(error => console.error(error))
 })
 
 app.get('/pets', (req, res) => {
-	console.log(pets.find().toArray())
+
 })
 
 app.post('/pets', (req, res) => {
