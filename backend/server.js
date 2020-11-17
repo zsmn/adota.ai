@@ -28,10 +28,6 @@ app.get('/', (req, res) => {
 /// pets
 // get
 app.get('/pets', (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Request-Method', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET');
-    res.setHeader('Access-Control-Allow-Headers', '*');
     db.collection('pets').find().toArray()
     .then(results => {
       res.json(results)
@@ -39,12 +35,16 @@ app.get('/pets', (req, res) => {
     .catch(error => console.error(error))
 })
 
-// post
-app.post('/pets', (req, res) => {
+// options
+app.options('/pets', (req, res) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Request-Method', '*');
     res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET');
     res.setHeader('Access-Control-Allow-Headers', '*');
+})
+
+// post
+app.post('/pets', (req, res) => {
     pets.insertOne(req.body)
     .then(result => {
         console.log("Registered")
@@ -54,29 +54,17 @@ app.post('/pets', (req, res) => {
 
 // put
 app.put('/pets', (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Request-Method', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET');
-    res.setHeader('Access-Control-Allow-Headers', '*');
 
 })
 
 // delete
 app.delete('/pets', (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Request-Method', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET');
-    res.setHeader('Access-Control-Allow-Headers', '*');
 
 })
 
 /// events
 // get
 app.get('/events', (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Request-Method', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET');
-    res.setHeader('Access-Control-Allow-Headers', '*');
     db.collection('events').find().toArray()
     .then(results => {
       res.json(results)
@@ -84,29 +72,25 @@ app.get('/events', (req, res) => {
     .catch(error => console.error(error))
 })
 
-// post
-app.post('/events', (req, res) => {
+// options
+app.options('/events', (req, res) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Request-Method', '*');
     res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET');
     res.setHeader('Access-Control-Allow-Headers', '*');
+})
+
+// post
+app.post('/events', (req, res) => {
 
 })
 
 // put
 app.put('/events', (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Request-Method', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET');
-    res.setHeader('Access-Control-Allow-Headers', '*');
 
 })
 
 // delete
 app.delete('/events', (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Request-Method', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET');
-    res.setHeader('Access-Control-Allow-Headers', '*');
 
 })
