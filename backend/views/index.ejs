@@ -1,0 +1,49 @@
+<!-- index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Star Wars Quote App</title>
+  </head>
+
+  <body>
+    <h1>May Node and Express be with you.</h1>
+
+    <form action="/pets" method="POST">
+      <input type="text" placeholder="name" name="name" />
+      <input type="text" placeholder="desc" name="desc" />
+      <button type="submit">Submit</button>
+    </form>
+
+    <div>
+        <h2>Zildao gostosao</h2>
+        <p>
+          Replace first Zildao's description with an "gostosao" description
+        </p>
+        <button id="update-button">Replace Zildao's description</button>
+    </div>
+
+    <div>
+        <h2>Zildao safadao</h2>
+        <p>
+          Delete first Zildao's description
+        </p>
+        <button id="delete-button">Delete Zildao's first description</button>
+    </div>
+
+    <h2> Pets </h2>
+
+    <ul class="pets">
+    <% for(var i = 0; i < pets.length; i++) {%>
+        <li class="pet">
+            <!-- Output name from the iterated quote object -->
+            <span><%= pets[i].name %></span>:
+            <!-- Output quote from the iterated quote object -->
+            <span><%= pets[i].desc %></span>
+        </li>
+    <% } %>
+    </ul>
+
+    <script src="/main.js"></script>
+  </body>
+</html>
