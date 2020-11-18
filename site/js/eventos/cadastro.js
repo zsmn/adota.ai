@@ -27,6 +27,7 @@ async function sendEventosInfo() {
     await axios.post('https://adota-ai-backend.herokuapp.com/events', { 
         dataEvento: document.getElementById('data-evento').value,
         infoGeral: document.getElementById('info-geral').value,
+        infoExtra: document.getElementById('info-extra').value,
         contato: document.getElementById('contato-evento').value,
         fotos: [foto1, foto2, foto3, foto4]
     })
