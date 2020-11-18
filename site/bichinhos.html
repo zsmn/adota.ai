@@ -24,6 +24,7 @@
 
   <!-- CSS -->
   <link href="assets/css/style.css" rel="stylesheet">
+  <script src="AddContentDinamically2.js" charset="utf-8"></script>
 </head>
 
 <body style="background-color: #5BA5A1;">
@@ -64,15 +65,10 @@
 <div class="page">
   <a class="btn"id="register-animal" href="registro-animais.html">Cadastrar Animal</a>
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner">
+    <div id="carousel-inner">
       <div class="carousel-item active">
         <table class="table-card-bichinhos" align="center" style="padding: 20px;">
-            <tr>
+            <tr class="row-bichinhos">
                 <td>
                     <div class="card" style="width: 20rem; background-color: #75E3DE;">
                         <div class="card-body">
@@ -258,7 +254,7 @@
                     </div>
                 </td>
             </tr>
-            <tr>
+            <tr class="row-bichinhos">
                 <td>
                     <div class="card" style="width: 20rem;">
                         <div class="card-body">
@@ -443,7 +439,7 @@
                     </div>
                 </td>
             </tr>
-            <tr>
+            <tr class="row-bichinhos">
                 <td>
                     <div class="card" style="width: 20rem;">
                         <div class="card-body">
@@ -632,7 +628,7 @@
       </div>
       <div class="carousel-item">
         <table class="table-card-bichinhos" align="center" style="padding: 20px;">
-            <tr>
+            <tr class="row-bichinhos">
                 <td>
                     <div class="card" style="width: 20rem; background-color: #75E3DE;">
                         <div class="card-body">
@@ -818,7 +814,7 @@
                     </div>
                 </td>
             </tr>
-            <tr>
+            <tr class="row-bichinhos">
                 <td>
                     <div class="card" style="width: 20rem;">
                         <div class="card-body">
@@ -1003,7 +999,7 @@
                     </div>
                 </td>
             </tr>
-            <tr>
+            <tr class="row-bichinhos">
                 <td>
                     <div class="card" style="width: 20rem;">
                         <div class="card-body">
@@ -1192,7 +1188,7 @@
       </div>
       <div class="carousel-item">
         <table class="table-card-bichinhos" align="center" style="padding: 20px;">
-            <tr>
+            <tr class="row-bichinhos">
                 <td>
                     <div class="card" style="width: 20rem; background-color: #75E3DE;">
                         <div class="card-body">
@@ -1378,7 +1374,7 @@
                     </div>
                 </td>
             </tr>
-            <tr>
+            <tr class="row-bichinhos">
                 <td>
                     <div class="card" style="width: 20rem;">
                         <div class="card-body">
@@ -1563,7 +1559,7 @@
                     </div>
                 </td>
             </tr>
-            <tr>
+            <tr class="row-bichinhos">
                 <td>
                     <div class="card" style="width: 20rem;">
                         <div class="card-body">
@@ -1824,6 +1820,7 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 </body>
 
