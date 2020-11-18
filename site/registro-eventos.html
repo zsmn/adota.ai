@@ -60,20 +60,17 @@
           <div class="fadeIn first">
             <img src="assets/img/profile.png" style="padding-top: 10px; padding-bottom:10px; width:15%;" id="icon"/>
           </div>
-      
+
           <!-- Login Form -->
-          <form>
-            <input type="text" id="login" class="fadeIn second" name="login" placeholder="Usuário">
-            <input type="text" id="password" class="fadeIn third" name="login" placeholder="Senha">
-            <input type="text" id="email" class="fadeIn fourth" name="login" placeholder="E-mail">
+          <form onsubmit="return false;" id="formEventos">
             <input type="text" id="data-evento" class="fadeIn fourth" name="login" placeholder="Data do Evento (DD/MM/AAAA)">
             <input type="text" id="info-geral" class="fadeIn fourth" name="login" placeholder="Informações Gerais">
             <input type="text" id="contato-evento" class="fadeIn fourth" name="login" placeholder="Contato do Evento">
             <p style="text-align:center;"> Selecione 4 fotos do evento </p>
-            <input type="file" id="evento-foto1" name="Foto 1 Evento" style="margin-top: 5px; margin-bottom: 5px;">
-            <input type="file" id="evento-foto2" name="Foto 2 Evento" style="margin-top: 5px; margin-bottom: 5px;">
-            <input type="file" id="evento-foto3" name="Foto 3 Evento" style="margin-top: 5px; margin-bottom: 5px;">
-            <input type="file" id="evento-foto4" name="Foto 4 Evento" style="margin-top: 5px; margin-bottom: 5px;">
+            <input type="file" id="evento-foto1" name="foto1" style="margin-top: 5px; margin-bottom: 5px;">
+            <input type="file" id="evento-foto2" name="foto2" style="margin-top: 5px; margin-bottom: 5px;">
+            <input type="file" id="evento-foto3" name="foto3" style="margin-top: 5px; margin-bottom: 5px;">
+            <input type="file" id="evento-foto4" name="foto4" style="margin-top: 5px; margin-bottom: 5px;">
             <input type="submit" style="background: #1e68b1; margin-top: 20px;" class="fadeIn fifth" value="Registrar Evento">
           </form>
       
@@ -145,6 +142,8 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="js/eventos/cadastro.js"></script>
 
 </body>
 

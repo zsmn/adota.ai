@@ -62,27 +62,23 @@
           </div>
       
           <!-- Login Form -->
-          <form action="#" id="desgraca">
-            <input type="text" id="login" class="fadeIn second" name="login" placeholder="Usuário">
-            <input type="text" id="password" class="fadeIn third" name="login" placeholder="Senha">
-            <input type="text" id="email" class="fadeIn fourth" name="login" placeholder="E-mail">
-            <input type="text" id="nome-animal" class="fadeIn fourth" name="login" placeholder="Nome do Animal">
-            <input type="text" id="localidade" class="fadeIn fourth" name="login" placeholder="Localidade">
-            <input type="text" id="sexo-animal" class="fadeIn fourth" name="login" placeholder="Sexo do Animal">
-            <input type="text" id="porte-animal" class="fadeIn fourth" name="login" placeholder="Porte do Animal">
-            <input type="text" id="idade-animal" class="fadeIn fourth" name="login" placeholder="Idade do Animal">
-            <input type="text" id="extra-info-animal" class="fadeIn fourth" name="login" placeholder="Informações Extras do Animal" style="height:100px;">
-            <input type="text" id="idade-animal" class="fadeIn fourth" name="login" placeholder="Informações de Contato">
+          <form onsubmit="return false;" id="formAnimais">
+            <input type="text" id="nome-animal" class="fadeIn second" name="nome" placeholder="Nome do Animal">
+            <input type="text" id="localidade" class="fadeIn third" name="localidade" placeholder="Localidade">
+            <input type="text" id="sexo-animal" class="fadeIn fourth" name="sexo" placeholder="Sexo do Animal">
+            <input type="text" id="porte-animal" class="fadeIn fourth" name="porte" placeholder="Porte do Animal">
+            <input type="text" id="idade-animal" class="fadeIn fourth" name="idade" placeholder="Idade do Animal">
+            <input type="text" id="extra-info-animal" class="fadeIn fourth" name="extrainfo" placeholder="Informações Extras do Animal" style="height:100px;">
+            <input type="text" id="contato-animal" class="fadeIn fourth" name="contato" placeholder="Informações de Contato">
             <p style="text-align:center;"> Selecione 3 fotos do animal </p>
-            <input type="file" id="animal-foto1" name="Foto 1 Animal" style="margin-top: 5px; margin-bottom: 5px;">
-            <input type="file" id="animal-foto2" name="Foto 2 Animal" style="margin-top: 5px; margin-bottom: 5px;">
-            <input type="file" id="animal-foto3" name="Foto 3 Animal" style="margin-top: 5px; margin-bottom: 5px;">
+            <input type="file" id="animal-foto1" name="foto1" style="margin-top: 5px; margin-bottom: 5px;">
+            <input type="file" id="animal-foto2" name="foto2" style="margin-top: 5px; margin-bottom: 5px;">
+            <input type="file" id="animal-foto3" name="foto3" style="margin-top: 5px; margin-bottom: 5px;">
             <input type="submit" id="register-pet" style="background: #1e68b1; margin-top: 20px;" class="fadeIn fifth" value="Registrar Animal">
           </form>
         </div>
       </div>
     </div>
-
 
       <!-- ======= Footer ======= -->
     <footer id="footer">
@@ -148,7 +144,7 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="js/cadastro.js"></script>
+  <script src="js/animais/cadastro.js"></script>
 
 </body>
 
