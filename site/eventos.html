@@ -24,6 +24,7 @@
 
   <!-- CSS -->
   <link href="assets/css/style.css" rel="stylesheet">
+  <script src="AddContentDinamically.js" charset="utf-8"></script>
 </head>
 
 <body>
@@ -54,11 +55,11 @@
     <div class="loginPage">
       <a class="btn"id="register-event" href="registro-eventos.html">Cadastrar Evento</a>
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
+        <div class="carousel-inner" id="carousel-inner">
           <div class="carousel-item active">
-            <table class="table-card-eventos" align="center" style="padding: 20px;">
-              <tr>
-                <td>
+          <table class="table-card-eventos" align="center" style="padding: 20px;"> 
+            <tr class="identifier-row"> 
+              <td>
                   <div class="card-eventos" style="width: 18rem;">
                     <div class="card-body-eventos">
                       <table class="content-of-event-card">
@@ -183,13 +184,13 @@
                       </div>
                     </div>
                   </div>
-                </td>
-              </tr>
-            </table>
+              </td>
+            </tr>
+          </table>
           </div>
           <div class="carousel-item">
             <table class="table-card-eventos" align="center" style="padding: 20px;">
-              <tr>
+              <tr class="identifier-row">
                 <td>
                   <div class="card-eventos" style="width: 18rem;">
                     <div class="card-body-eventos">
@@ -322,7 +323,7 @@
           </div>
           <div class="carousel-item">
             <table class="table-card-eventos" align="center" style="padding: 20px;">
-              <tr>
+              <tr class="identifier-row">
                 <td>
                   <div class="card-eventos" style="width: 18rem;">
                     <div class="card-body-eventos">
