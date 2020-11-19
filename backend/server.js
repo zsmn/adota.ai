@@ -116,8 +116,8 @@ async function retorna_usuario(request, response){
 		console.log('Nao encontrado')
 		return response.status(400).send({error: 'Usuario nao encontrado'})
 	}
-	var senha = await bcrypt.hash(password,10)
-	if(user.password != senha){
+	var senha = await bcrypt.hash(user.password,10)
+	if(password != senha){
 		console.log('Senha Incorreta a correta seria: ' + user.password + ' o digitado foi ' + password)
 		return response.status(400).send({error: 'Senha invalida'})
 	}
