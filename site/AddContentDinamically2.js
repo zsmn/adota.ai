@@ -9,7 +9,7 @@ async function getAnimalsInfo(document){
         //console.log(resp.data);
         contentBd = resp.data;
         console.log('olaaaaa');
-        console.log(contentBd);
+        console.log(contentBd['pets']);
         //Fazendo a conversão de um Array para u JSON
         
         
