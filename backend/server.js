@@ -6,7 +6,7 @@ const ObjectId = require("mongodb").ObjectID;
 const CONNECTION_URL = process.env.MONGO_USR;
 const PORT = process.env.PORT || 3000;
 const DATABASE_NAME = "adota-ai";
-
+const bcrypt = require("bcryptjs")
 
 
 var app = Express();
@@ -81,7 +81,7 @@ app.get("/events", (request, response) => {
 //POST
 app.post("/users", (request, response) =>{
 	console.log(request.body)
-	request.body.password = 'Quedelicia'
+	request.body.password = bcrypt.hash(request.body.password,10)
 	console.log(request.body.password)
 	console.log(request.body)
 	usersCollection.insertOne(request.body, (error, result) =>{	
@@ -111,7 +111,7 @@ async function retorna_usuario(request, response){
 		console.log('Nao encontrado')
 		return response.status(400).send({error: 'Usuario nao encontrado'})
 	}
-	if(user.password != password){
+	if(user.password != bcrypt.hash(password,10)){
 		console.log('Senha Incorreta a correta seria: ' + user.password + ' o digitado foi ' + password)
 		return response.status(400).send({error: 'Senha invalida'})
 	}
