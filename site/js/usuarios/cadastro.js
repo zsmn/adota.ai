@@ -1,5 +1,3 @@
-
-
 function readFileAsync(file) {
     return new Promise((resolve, reject) => {
       let reader = new FileReader();
@@ -29,7 +27,7 @@ async function sendUsuariosInfo() {
     */
     await axios.post('https://adota-ai-backend.herokuapp.com/users', { 
         login: document.getElementById('login').value,
-        password: bcrypt.hash(document.getElementById('password').value, 10), 
+        password: document.getElementById('password').value, 
         email: document.getElementById('email').value
     })
     .then(function(response){

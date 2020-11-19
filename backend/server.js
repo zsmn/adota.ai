@@ -80,8 +80,7 @@ app.get("/events", (request, response) => {
 ///USERS
 //POST
 app.post("/users", (request, response) =>{
-	
-	//request.body.password = bcrypt.hash(request.body.password, 10)
+	console.log(1234)
 	usersCollection.insertOne(request.body, (error, result) =>{	
 		if(error){
 			return response.status(500).send(error);
