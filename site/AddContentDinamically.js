@@ -32,6 +32,8 @@ async function getEventsInfo(document){
         var d = ""
         var date = []
         var date1 = ""
+        var aux = []
+        var year = ""
         //Verificar se teremos que usar o metodo Array.from() de novo.
         //Verificar se teremos que usar o metodo Array.from() de novo.
 
@@ -41,9 +43,12 @@ async function getEventsInfo(document){
             d = finalBd[i]['eventDate']
             date = d.split('T')
             date1 = date[0]
-            [year, month, day] = date1.split('-') 
-            year = year.substr(2,2)
-            DATA_DO_EVENTO = day + "/" + month + "/" + year
+            aux = date1.split('-') 
+            //aux[0] -> year
+            //aux[1] -> month
+            //aux[2] -> day
+            year = aux[0].substr(2,2)
+            DATA_DO_EVENTO = aux[2] + "/" + aux[1] + "/" + year
             console.log("data do evento: " + DATA_DO_EVENTO)
             /************************************************/
             DESCRICAO_DO_EVENTO = finalBd[i]['generalInfo']
