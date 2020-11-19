@@ -6,7 +6,7 @@ const ObjectId = require("mongodb").ObjectID;
 const CONNECTION_URL = process.env.MONGO_USR;
 const PORT = process.env.PORT || 3000;
 const DATABASE_NAME = "adota-ai";
-const bcrypt = require("bcryptjs");
+
 
 
 var app = Express();
