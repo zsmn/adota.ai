@@ -106,12 +106,12 @@ app.post("/login", (request, response) =>{
 	const {login, password} = request.body;
 	user = usersCollection.findOne({login})
 	if(!user){
-		return res.status(400).send({error: 'Usuario nao encontrado'})
+		return response.status(400).send({error: 'Usuario nao encontrado'})
 	}
 	if(user.password != password){
-		return res.status(400).send({error: 'Senha invalida'})
+		return response.status(400).send({error: 'Senha invalida'})
 	}
-	res.redirect('/')
+	response.redirect('/')
 });
 
 //GET
