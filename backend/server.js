@@ -6,6 +6,7 @@ const ObjectId = require("mongodb").ObjectID;
 const CONNECTION_URL = process.env.MONGO_USR;
 const PORT = process.env.PORT || 3000;
 const DATABASE_NAME = "adota-ai";
+const bcrypt = require("bcryptjs");
 
 
 var app = Express();
@@ -79,7 +80,9 @@ app.get("/events", (request, response) => {
 ///USERS
 //POST
 app.post("/users", (request, response) =>{
-	usersCollection.insertOne(request.body, (error, result) =>{
+	
+	//request.body.password = bcrypt.hash(request.body.password, 10)
+	usersCollection.insertOne(request.body, (error, result) =>{	
 		if(error){
 			return response.status(500).send(error);
 		}
@@ -97,3 +100,27 @@ app.get("/users", (request, response) => {
 	});
 });
 
+///LOGIN
+//POST
+app.post("/login", (request, response) =>{
+	//request.body.password = bcrypt.hash(request.body.password, 10)
+	const {login, password} = request.body;
+	user = usersCollection.findOne({login})
+	if(!user){
+		return res.status(400).send({error: 'Usuario nao encontrado'})
+	}
+	if(user.password != password){
+		return res.status(400).send({error: 'Senha invalida'})
+	}
+	res.redirect('/')
+});
+
+//GET
+app.get("/login", (request, response) => {
+	usersCollection.find({}).toArray((error, result) =>{
+		if(error){
+			return response.status(500).send(error);
+		}
+		response.send(result);
+	});
+});

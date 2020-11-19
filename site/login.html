@@ -62,7 +62,7 @@
           </div>
       
           <!-- Login Form -->
-          <form>
+          <form onsubmit="return false;" id="formLogin">
             <input type="text" id="login" class="fadeIn second" name="login" placeholder="Usuário">
             <input type="text" id="password" class="fadeIn third" name="login" placeholder="Senha">
             <input type="submit" style="background: #1e68b1; margin-top: 20px;" class="fadeIn fourth" value="Login">
@@ -139,6 +139,8 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="js/login/cadastro.js"></script>
 
 </body>
 

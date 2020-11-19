@@ -1,4 +1,4 @@
-//const bcrypt = require('bcryptjs')
+
 
 function readFileAsync(file) {
     return new Promise((resolve, reject) => {
@@ -29,7 +29,7 @@ async function sendUsuariosInfo() {
     */
     await axios.post('https://adota-ai-backend.herokuapp.com/users', { 
         login: document.getElementById('login').value,
-        password: document.getElementById('password').value,//bcrypt.hash(document.getElementById('password').value, 10), 
+        password: bcrypt.hash(document.getElementById('password').value, 10), 
         email: document.getElementById('email').value
     })
     .then(function(response){
