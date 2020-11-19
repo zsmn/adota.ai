@@ -3,7 +3,7 @@ const BodyParser = require("body-parser");
 const { request, response } = require("express");
 const MongoClient = require("mongodb").MongoClient;
 const ObjectId = require("mongodb").ObjectID;
-const CONNECTION_URL = 'mongodb+srv://adotaai:zilpirocada@cluster0.mjf69.mongodb.net/adota-ai?retryWrites=true&w=majority'
+const CONNECTION_URL = process.env.MONGO_USR;
 const PORT = process.env.PORT || 3000;
 const DATABASE_NAME = "adota-ai";
 
@@ -83,7 +83,7 @@ app.post("/users", (request, response) =>{
 		if(error){
 			return response.status(500).send(error);
 		}
-		response.send({ok: true});
+		response.send(result.result);
 	});
 });
 
