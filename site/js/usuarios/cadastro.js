@@ -30,8 +30,8 @@ async function sendUsuariosInfo() {
         password: document.getElementById('password').value, 
         email: document.getElementById('email').value
     })
-    .then(function(response){
-        console.log('salvo com sucesso')
+    .then(resp => {
+      console.log(resp.statusText)
     });
 }
 

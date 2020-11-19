@@ -3,7 +3,7 @@
 var contentBd
 
 async function getAnimalsInfo(document){
-    await axios.get('https://adota-ai-backend.herokuapp.com/pets')
+    await axios.get('https://adota-ai-backend.herokuapp.com/pet')
       .then(resp => {
         console.log(resp.data);
         contentBd = resp.data;

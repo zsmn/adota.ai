@@ -3,7 +3,7 @@
 var contentBd
 
 async function getEventsInfo(document){
-    await axios.get('https://adota-ai-backend.herokuapp.com/events')
+    await axios.get('https://adota-ai-backend.herokuapp.com/event')
       .then(resp => {
         console.log(resp.data);
         contentBd = resp.data;
@@ -29,17 +29,17 @@ async function getEventsInfo(document){
 
         //Verificar se teremos que usar o metodo Array.from() de novo.
         //Verificar se teremos que usar o metodo Array.from() de novo.
-        
+
         for(var i = 0; i < contentBd.length; i++){
             console.log("Entrei no loop!")
-            IMAGEM_PRINCIPAL_EVENTO = contentBd[i]['fotos'][0]
-            DATA_DO_EVENTO = contentBd[i]['dataEvento']
-            DESCRICAO_DO_EVENTO = contentBd[i]['infoGeral']
-            DESCRICAO_DO_EVENTO_2 = ""
-            PHOTO2_DO_EVENTO = contentBd[i]['fotos'][1]
-            PHOTO3_DO_EVENTO = contentBd[i]['fotos'][2]
-            PHOTO4_DO_EVENTO = contentBd[i]['fotos'][3]
-            CONTATO_DO_EVENTO = contentBd[i]['contato']
+            IMAGEM_PRINCIPAL_EVENTO = contentBd[i]['photos'][0]
+            DATA_DO_EVENTO = contentBd[i]['eventDate']
+            DESCRICAO_DO_EVENTO = contentBd[i]['generalInfo']
+            DESCRICAO_DO_EVENTO_2 = contentBd[i]['extraInfo']
+            PHOTO2_DO_EVENTO = contentBd[i]['photos'][1]
+            PHOTO3_DO_EVENTO = contentBd[i]['photos'][2]
+            PHOTO4_DO_EVENTO = contentBd[i]['photos'][3]
+            CONTATO_DO_EVENTO = contentBd[i]['ownerContact']
 
             if(i % 3 == 0){ //Tem que adicionar uma nova pagina 
                 carouselSlides.innerHTML += "<div class=\"carousel-item \"> <table class=\"table-card-eventos\" align=\"center\" style=\"padding: 20px;\"><tr class=\"identifier-row\">  <td><div class=\"card-eventos\" style=\"width: 18rem;\"><div class=\"card-body-eventos\"><table class=\"content-of-event-card\"><tr><img class=\"card-eventos-img-top\" src="+IMAGEM_PRINCIPAL_EVENTO+" alt=\"Card image cap\"></tr><tr><td><div class=\"event-date-box\"><p class=\"event-date\"> "+DATA_DO_EVENTO+" </p></div></td><td style=\"margin-right: 5px;\"><div class=\"event-descript1-box\"><p class=\"event-descript1\"> "+DESCRICAO_DO_EVENTO+" </p></div></td></tr></table><div class=\"event-descript2\"><p> "+DESCRICAO_DO_EVENTO_2+" </p></div><table class=\"event-photos\"><tr><td><img class=\"event-photo\" src="+PHOTO2_DO_EVENTO+" alt=\"Here goes an image!\"></td><td><img class=\"event-photo\" src="+PHOTO3_DO_EVENTO+" alt=\"Here goes an image!\"></td><td><img class=\"event-photo\" src="+PHOTO4_DO_EVENTO+" alt=\"Here goes an image!\"></td></tr></table><div class=\"event-contact\"><center> <p> "+CONTATO_DO_EVENTO+" </p> </center></div></div></div></td>  </tr></table></div>"

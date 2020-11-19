@@ -24,19 +24,25 @@ async function sendEventosInfo() {
     let foto3 = await readFileAsync(file3)
     let foto4 = await readFileAsync(file4)
 
-    await axios.post('https://adota-ai-backend.herokuapp.com/events', { 
-        dataEvento: document.getElementById('data-evento').value,
-        infoGeral: document.getElementById('info-geral').value,
-        infoExtra: document.getElementById('info-extra').value,
-        contato: document.getElementById('contato-evento').value,
-        fotos: [foto1, foto2, foto3, foto4]
-    })
-    .then(function(response){
-        console.log('salvo com sucesso')
+    await axios.post('https://adota-ai-backend.herokuapp.com/event/register', 
+    { 
+        eventDate: document.getElementById('data-evento').value,
+        generalInfo: document.getElementById('info-geral').value,
+        extraInfo: document.getElementById('info-extra').value,
+        ownerContact: document.getElementById('contato-evento').value,
+        photos: [foto1, foto2, foto3, foto4]
+    },
+    {
+      headers: {
+        'Authorization': localStorage.getItem('token')
+      }
+    }
+    )
+    .then(resp => {
+      console.log(resp.statusText)
     });
 }
 
 
 const form = document.getElementById('formEventos');
 form.addEventListener('submit', sendEventosInfo);
-

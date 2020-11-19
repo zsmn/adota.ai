@@ -22,18 +22,24 @@ async function sendAnimaisInfo() {
     let foto2 = await readFileAsync(file2)
     let foto3 = await readFileAsync(file3)
 
-    await axios.post('https://adota-ai-backend.herokuapp.com/pets', { 
-        nomeAnimal: document.getElementById('nome-animal').value,
-        localidade: document.getElementById('localidade').value,
-        sexo: document.getElementById('sexo-animal').value,
-        porte: document.getElementById('porte-animal').value,
-        idade: document.getElementById('idade-animal').value,
-        extrainfo: document.getElementById('extra-info-animal').value,
-        contato: document.getElementById('contato-animal').value,
-        fotos: [foto1, foto2, foto3]
+    await axios.post('https://adota-ai-backend.herokuapp.com/pet/register', 
+    { 
+        animalName: document.getElementById('nome-animal').value,
+        locality: document.getElementById('localidade').value,
+        sex: document.getElementById('sexo-animal').value,
+        size: document.getElementById('porte-animal').value,
+        age: document.getElementById('idade-animal').value,
+        info: document.getElementById('extra-info-animal').value,
+        contact: document.getElementById('contato-animal').value,
+        photos: [foto1, foto2, foto3]
+    },
+    {
+      headers: {
+        'Authorization': localStorage.getItem('token')
+      }
     })
-    .then(function(response){
-        console.log('salvo com sucesso')
+    .then(resp => {
+      console.log(resp.statusText)
     });
 }
 
