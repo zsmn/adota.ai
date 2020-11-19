@@ -9,7 +9,7 @@ async function getEventsInfo(document){
         //console.log(resp.data);
         contentBd = resp.data;
         finalBd = contentBd['events'] //Assim eu consigo acessar cada um dos eventos que se encontram presentes dentro do meu bd.
-        console.log(contentBd['events'])
+        //console.log(contentBd['events'])
 
         var carouselSlides = document.getElementById("carousel-inner")
 
@@ -29,19 +29,22 @@ async function getEventsInfo(document){
         var PHOTO3_DO_EVENTO = ""
         var PHOTO4_DO_EVENTO = ""
         var CONTATO_DO_EVENTO = ""
-
+        var d = ""
+        var date = []
+        var date1 = ""
         //Verificar se teremos que usar o metodo Array.from() de novo.
         //Verificar se teremos que usar o metodo Array.from() de novo.
 
         for(var i = 0; i < finalBd.length; i++){
             IMAGEM_PRINCIPAL_EVENTO = finalBd[i]['photos'][0]
             /* Realizando o tratamento de formatacao de data*/
-            var d = finalBd[i]['eventDate']
-            var date = d.split('T')
-            var date1 = date[0]
+            d = finalBd[i]['eventDate']
+            date = d.split('T')
+            date1 = date[0]
             [year, month, day] = date1.split('-') 
             year = year.substr(2,2)
             DATA_DO_EVENTO = day + "/" + month + "/" + year
+            console.log("data do evento: " + DATA_DO_EVENTO)
             /************************************************/
             DESCRICAO_DO_EVENTO = finalBd[i]['generalInfo']
             DESCRICAO_DO_EVENTO_2 = finalBd[i]['extraInfo']
