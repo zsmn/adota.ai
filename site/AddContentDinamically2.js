@@ -8,7 +8,11 @@ async function getAnimalsInfo(document){
         
         //console.log(resp.data);
         contentBd = resp.data;
-        console.log(contentBd);
+        //console.log(contentBd);
+        console.log(contentBd[0]);
+        //Fazendo a conversão de um Array para u JSON
+        
+        
         
         var carouselSlides = document.getElementById("carousel-inner")
 
