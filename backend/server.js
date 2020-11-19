@@ -109,7 +109,7 @@ async function retorna_usuario(login){
 app.post("/login", (request, response) =>{
 	//request.body.password = bcrypt.hash(request.body.password, 10)
 	const {login, password} = request.body;
-	user = await usersCollection.findOne({login})
+	user = retorna_usuario(login)
 	console.log(user)
 	if(!user){
 		console.log('Nao encontrado')
