@@ -118,7 +118,7 @@ async function retorna_usuario(request, response){
 	}
 	var senha = await bcrypt.hash(user.password,10)
 	console.log(senha)
-	if(password != senha){
+	if(!await bcrypt.compare(password, user.password)){
 		console.log('Senha Incorreta a correta seria: ' + user.password + ' o digitado foi ' + password)
 		return response.status(400).send({error: 'Senha invalida'})
 	}
