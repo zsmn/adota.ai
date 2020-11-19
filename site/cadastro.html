@@ -62,10 +62,10 @@
           </div>
       
           <!-- Login Form -->
-          <form>
-            <input type="text" id="login" class="fadeIn second" name="login" placeholder="Usuário">
-            <input type="text" id="password" class="fadeIn third" name="login" placeholder="Senha">
-            <input type="text" id="email" class="fadeIn fourth" name="login" placeholder="E-mail">
+          <form  onsubmit="return false;" id="formUsuarios">
+            <input type="text" id="login" class="fadeIn second" name="usuario" placeholder="Usuário">
+            <input type="password" id="password" class="fadeIn third" name="senha" placeholder="Senha">
+            <input type="text" id="email" class="fadeIn fourth" name="email" placeholder="E-mail">
             <input type="submit" style="background: #1e68b1; margin-top: 20px;" class="fadeIn fifth" value="Cadastrar">
           </form>
       
@@ -135,6 +135,8 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="js/usuarios/cadastro.js"></script>
 
 </body>
 

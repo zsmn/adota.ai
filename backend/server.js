@@ -1,8 +1,9 @@
 const Express = require("express");
 const BodyParser = require("body-parser");
+const { request, response } = require("express");
 const MongoClient = require("mongodb").MongoClient;
 const ObjectId = require("mongodb").ObjectID;
-const CONNECTION_URL = process.env.MONGO_USR;
+const CONNECTION_URL = 'mongodb+srv://adotaai:zilpirocada@cluster0.mjf69.mongodb.net/adota-ai?retryWrites=true&w=majority'
 const PORT = process.env.PORT || 3000;
 const DATABASE_NAME = "adota-ai";
 
@@ -19,7 +20,8 @@ app.listen(PORT, () => {
         }
         database = client.db(DATABASE_NAME);
         petsCollection = database.collection("pets");
-        eventsCollection = database.collection("events");
+		eventsCollection = database.collection("events");
+		usersCollection = database.collection("users");
         console.log("Connected to `" + DATABASE_NAME + "`!");
     });
 });
@@ -73,3 +75,25 @@ app.get("/events", (request, response) => {
 		response.send(result);
 	});
 });
+
+///USERS
+//POST
+app.post("/users", (request, response) =>{
+	usersCollection.insertOne(request.body, (error, result) =>{
+		if(error){
+			return response.status(500).send(error);
+		}
+		response.send({ok: true});
+	});
+});
+
+//GET
+app.get("/users", (request, response) => {
+	usersCollection.find({}).toArray((error, result) =>{
+		if(error){
+			return response.status(500).send(error);
+		}
+		response.send(result);
+	});
+});
+
