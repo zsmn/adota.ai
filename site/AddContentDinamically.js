@@ -1,12 +1,15 @@
 //Verificar se teremos que usar o metodo Array.from() de novo.
 
 var contentBd
+var finalBd
 
 async function getEventsInfo(document){
     await axios.get('https://adota-ai-backend.herokuapp.com/event')
       .then(resp => {
-        console.log(resp.data);
+        //console.log(resp.data);
         contentBd = resp.data;
+        finalBd = contentBd['events'] //Assim eu consigo acessar cada um dos eventos que se encontram presentes dentro do meu bd.
+        console.log(contentBd['events'])
 
         var carouselSlides = document.getElementById("carousel-inner")
 
@@ -31,7 +34,7 @@ async function getEventsInfo(document){
         //Verificar se teremos que usar o metodo Array.from() de novo.
 
         for(var i = 0; i < contentBd.length; i++){
-            console.log("Entrei no loop!")
+            //console.log("Entrei no loop!")
             IMAGEM_PRINCIPAL_EVENTO = contentBd[i]['photos'][0]
             DATA_DO_EVENTO = contentBd[i]['eventDate']
             DESCRICAO_DO_EVENTO = contentBd[i]['generalInfo']
