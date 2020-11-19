@@ -81,6 +81,7 @@ app.get("/events", (request, response) => {
 //POST
 app.post("/users", (request, response) =>{
 	console.log(request.body)
+	console.log(request.body.password)
 	usersCollection.insertOne(request.body, (error, result) =>{	
 		if(error){
 			return response.status(500).send(error);
@@ -105,12 +106,13 @@ app.post("/login", (request, response) =>{
 	//request.body.password = bcrypt.hash(request.body.password, 10)
 	const {login, password} = request.body;
 	user = usersCollection.findOne({login})
+	console.log(user)
 	if(!user){
 		console.log('Nao encontrado')
 		return response.status(400).send({error: 'Usuario nao encontrado'})
 	}
 	if(user.password != password){
-		console.log('Senha Incorreta')
+		console.log('Senha Incorreta a correta seria: ' + user.password + ' o digitado foi ' + password)
 		return response.status(400).send({error: 'Senha invalida'})
 	}
 	response.redirect('/')
