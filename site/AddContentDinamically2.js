@@ -5,9 +5,11 @@ var contentBd
 async function getAnimalsInfo(document){
     await axios.get('https://adota-ai-backend.herokuapp.com/pet')
       .then(resp => {
-        console.log(resp.data);
+        
+        //console.log(resp.data);
         contentBd = resp.data;
-
+        console.log(contentBd);
+        
         var carouselSlides = document.getElementById("carousel-inner")
 
         var quantityOfCardAnimals = 0
@@ -30,8 +32,8 @@ async function getAnimalsInfo(document){
 
         var allTableCard = Array.from(document.querySelectorAll('.table-card-bichinhos'))
 
-        console.log(contentBd)
-        console.log(contentBd.length)
+        //console.log(contentBd)
+        //console.log(contentBd.length)
 
         for(var i = 0; i < contentBd.length; i++){
             console.log("DALEEE")
