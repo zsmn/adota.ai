@@ -15,7 +15,7 @@ function readFileAsync(file) {
 
 async function sendLoginInfo() {
     
-    await axios.post('https://adota-ai-backend.herokuapp.com/auth/authentication', { 
+    await axios.post('https://adota-ai-backend.herokuapp.com/auth/authenticate', { 
         username: document.getElementById('login').value,
         password: document.getElementById('password').value, 
     })
