@@ -34,9 +34,15 @@ async function getEventsInfo(document){
         //Verificar se teremos que usar o metodo Array.from() de novo.
 
         for(var i = 0; i < finalBd.length; i++){
-            //console.log("Entrei no loop!")
             IMAGEM_PRINCIPAL_EVENTO = finalBd[i]['photos'][0]
-            DATA_DO_EVENTO = finalBd[i]['eventDate']
+            /* Realizando o tratamento de formatacao de data*/
+            var d = finalBd[i]['eventDate']
+            var date = d.split('T')
+            var date1 = date[0]
+            [year, month, day] = date1.split('-') 
+            year = year.substr(2,2)
+            DATA_DO_EVENTO = day + "/" + month + "/" + year
+            /************************************************/
             DESCRICAO_DO_EVENTO = finalBd[i]['generalInfo']
             DESCRICAO_DO_EVENTO_2 = finalBd[i]['extraInfo']
             PHOTO2_DO_EVENTO = finalBd[i]['photos'][1]
