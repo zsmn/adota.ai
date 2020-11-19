@@ -100,12 +100,16 @@ app.get("/users", (request, response) => {
 	});
 });
 
+
+async function retorna_usuario(login){
+	return await usersCollection.findOne({login})
+}
 ///LOGIN
 //POST
 app.post("/login", (request, response) =>{
 	//request.body.password = bcrypt.hash(request.body.password, 10)
 	const {login, password} = request.body;
-	user = usersCollection.findOne({login})
+	user = await usersCollection.findOne({login})
 	console.log(user)
 	if(!user){
 		console.log('Nao encontrado')
