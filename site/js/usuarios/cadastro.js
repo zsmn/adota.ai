@@ -25,8 +25,8 @@ async function sendUsuariosInfo() {
     let foto3 = await readFileAsync(file3)
     let foto4 = await readFileAsync(file4)
     */
-    await axios.post('https://adota-ai-backend.herokuapp.com/users', { 
-        login: document.getElementById('login').value,
+    await axios.post('https://adota-ai-backend.herokuapp.com/auth/register', { 
+        username: document.getElementById('login').value,
         password: document.getElementById('password').value, 
         email: document.getElementById('email').value
     })
