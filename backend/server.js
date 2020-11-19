@@ -79,9 +79,10 @@ app.get("/events", (request, response) => {
 
 ///USERS
 //POST
-app.post("/users", (request, response) =>{
+
+async function cadastro_cripto(request, response){
 	console.log(request.body)
-	request.body.password = bcrypt.hash(request.body.password,10)
+	request.body.password = await bcrypt.hash(request.body.password,10)
 	console.log(request.body.password)
 	console.log(request.body)
 	usersCollection.insertOne(request.body, (error, result) =>{	
@@ -90,6 +91,10 @@ app.post("/users", (request, response) =>{
 		}
 		response.send(result.result);
 	});
+}
+
+app.post("/users", (request, response) =>{
+	cadastro_cripto(request,response)
 });
 
 //GET
@@ -111,7 +116,8 @@ async function retorna_usuario(request, response){
 		console.log('Nao encontrado')
 		return response.status(400).send({error: 'Usuario nao encontrado'})
 	}
-	if(user.password != bcrypt.hash(password,10)){
+	var senha = await bcrypt.hash(password,10)
+	if(user.password != senha){
 		console.log('Senha Incorreta a correta seria: ' + user.password + ' o digitado foi ' + password)
 		return response.status(400).send({error: 'Senha invalida'})
 	}
