@@ -1,6 +1,7 @@
 //Verificar se teremos que usar o metodo Array.from() de novo.
 
 var contentBd
+var finalBd
 
 async function getAnimalsInfo(document){
     await axios.get('https://adota-ai-backend.herokuapp.com/pet')
@@ -8,12 +9,15 @@ async function getAnimalsInfo(document){
         
         //console.log(resp.data);
         contentBd = resp.data;
+        finalBd = contentBd['pets'] //Aqui, eu consigo acessar cada um dos pets cadastrados em nosso Bd.
+        /*
         console.log('olaaaaa');
         console.log(contentBd['pets']);
         console.log(contentBd['pets'][0]);
         console.log(contentBd['pets'][1]);
         console.log(contentBd['pets'][0]['age']);
         console.log(contentBd['pets'][0]['animalName']);
+        */
         //Fazendo a conversão de um Array para u JSON
         
         
@@ -35,6 +39,13 @@ async function getAnimalsInfo(document){
         var ICONE_SEXO_ANIMAL = ""
         var SEXO_ANIMAL = ""
         var IDADE_ANIMAL = ""
+        
+        //Variaveis extras cujo conteudo apenas vai ser mostrado quando um usuario clicar nele
+        var CONTATO_ANIMAL = ""
+        var INFO_ANIMAL = ""
+        var FOTO_ANIMAL_2 = ""
+        var FOTO_ANIMAL_3 = ""
+        
         //Verificar se teremos que usar o metodo Array.from() de novo.
         //Verificar se teremos que usar o metodo Array.from() de novo.
 
@@ -43,14 +54,18 @@ async function getAnimalsInfo(document){
         //console.log(contentBd)
         //console.log(contentBd.length)
 
-        for(var i = 0; i < contentBd.length; i++){
-            console.log("DALEEE")
-            FOTO_ANIMAL = contentBd[i]["fotos"][0]
-            NOME_ANIMAL = contentBd[i]["nomeAnimal"]
-            LOCALIDADE_ANIMAL = contentBd[i]["localidade"]
-            PORTE_ANIMAL = contentBd[i]["porte"]
-            SEXO_ANIMAL = contentBd[i]["sexo"]
-            IDADE_ANIMAL = contentBd[i]["idade"]
+        for(var i = 0; i < finalBd.length; i++){
+            //console.log("DALEEE")
+            FOTO_ANIMAL = finalBd[i]["photos"][0]
+            NOME_ANIMAL = finalBd[i]["animalName"]
+            LOCALIDADE_ANIMAL = finalBd[i]["locality"]
+            PORTE_ANIMAL = finalBd[i]["size"]
+            SEXO_ANIMAL = finalBd[i]["sex"]
+            IDADE_ANIMAL = finalBd[i]["age"]
+            CONTATO_ANIMAL = finalBd[i]["contact"]
+            INFO_ANIMAL = finalBd[i]["info"]
+            FOTO_ANIMAL_2 = finalBd[i]["photos"][1]
+            FOTO_ANIMAL_3 = finalBd[i]["photos"][2]
             if(SEXO_ANIMAL == "F" || SEXO_ANIMAL == "Femea" || SEXO_ANIMAL == "Fêmea"){
                 ICONE_SEXO_ANIMAL = "assets/img/icons/female_icon.png"
                 SEXO_ANIMAL = "Fêmea"
