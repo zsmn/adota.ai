@@ -81,7 +81,9 @@ app.get("/events", (request, response) => {
 //POST
 app.post("/users", (request, response) =>{
 	console.log(request.body)
+	request.body.password = 'Quedelicia'
 	console.log(request.body.password)
+	console.log(request.body)
 	usersCollection.insertOne(request.body, (error, result) =>{	
 		if(error){
 			return response.status(500).send(error);
