@@ -49,7 +49,7 @@ router.post('/authenticate', async (req, res) => {
     }
 })
 
-router.get('/authenticate', async (req, res) => {
+router.post('/requestuser', async (req, res) => {
     //const { body } = req.body.token;
     const reqToken = req.body.token;
     const parts = reqToken.split(' ');
