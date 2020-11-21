@@ -2,7 +2,8 @@ var userName = "";
 
 async function checkToken(document){
     var cabecalho = document.getElementById("cabecalho")
-    await axios.post('https://adota-ai-backend.herokuapp.com/auth/requestuser', {
+    if(localStorage.getItem('token').split(' ')[0] == 'Bearer'){
+       await axios.post('https://adota-ai-backend.herokuapp.com/auth/requestuser', {
         token : localStorage.getItem('token')
     })
       .then(resp => {
@@ -16,7 +17,10 @@ async function checkToken(document){
       .catch(error => {
         cabecalho.innerHTML += "<li><a href=\"login.html\">Login</a></li><li><a href=\"cadastro.html\">Cadastro</a></li>"
       });
-    console.log(localStorage.getItem('token'));
+    }
+    else{
+    	cabecalho.innerHTML += "<li><a href=\"login.html\">Login</a></li><li><a href=\"cadastro.html\">Cadastro</a></li>"
+    }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
