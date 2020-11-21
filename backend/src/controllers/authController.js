@@ -50,7 +50,11 @@ router.post('/authenticate', async (req, res) => {
 })
 
 router.get('/authenticate', async (req, res) => {
-    const { token } = req.body;
+    //const { body } = req.body.token;
+    const reqToken = req.body.token;
+    const parts = reqToken.split(' ');
+    const [ bearer, token ] = parts;
+
     var id = null;
     try{
         jwt.verify(token, authConfig.secret, (err, decoded) => {
