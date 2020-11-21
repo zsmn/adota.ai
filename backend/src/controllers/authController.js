@@ -49,4 +49,23 @@ router.post('/authenticate', async (req, res) => {
     }
 })
 
+router.get('/authenticate', async (req, res) => {
+    const { token } = req.body;
+    var id = null;
+    try{
+        jwt.verify(token, authConfig.secret, (err, decoded) => {
+            if (err)
+                return res.status(401).send({error: 'Token invalid'});
+    
+            id = decoded.id;
+        })
+
+        const user = await User.findOne({ _id: id });
+        res.send({ username: user.username });
+    }
+    catch (err){
+        return res.status(400).send({ error: 'Could not find user' });
+    }
+})
+
 module.exports = app => app.use('/auth', router);
