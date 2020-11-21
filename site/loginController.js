@@ -2,7 +2,7 @@ var userName = "";
 
 async function checkToken(document){
     var cabecalho = document.getElementById("cabecalho")
-    if(localStorage.getItem('token').split(' ')[0] == 'Bearer'){
+    if(localStorage.getItem('token') != null){
        await axios.post('https://adota-ai-backend.herokuapp.com/auth/requestuser', {
         token : localStorage.getItem('token')
     })
