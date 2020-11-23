@@ -11,6 +11,9 @@
 ## Link para o projeto
 https://adota-ai.herokuapp.com/
 
+## Wiki
+* Para uma documentação mais detalhada e separada em seções (FrontEnd, BackEnd e Banco de Dados): https://github.com/zsmn/adota.ai/wiki
+
 ## Membros
 * Victor Miguel de Morais Costa (vmmc2)
 * Victor Hugo Meirelles Silva (vhms)
