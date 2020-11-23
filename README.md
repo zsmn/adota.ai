@@ -38,3 +38,18 @@ https://adota-ai.herokuapp.com/
 
 ### Escolha de Framework e de outros aspectos para o BackEnd
 * Para desenvolver o BackEnd de nossa aplicação, optamos por usar Javascript (ao invés de Go ou Python) por ser uma linguagem bastante popular e que apresenta síntaxe de fácil entendimento e também pela quantidade de materiais existentes sobre ela. Na elaboração do BackEnd de fato, usamos o Node.js em conjunto com o framework Express.js. Optamos por usar essas duas tecnologias por recomendação do professor e porque também achamos um tutorial muito bem formulado feito pela Rocketseat que explicava exatamente o que estávamos querendo fazer e também utilizava essas duas ferramentas. Como nossa aplicação envolve o cadastro e o login/logout de usuários, é necessários que ela seja capaz de gerar tokens e também de fornecer algum tipo de privacidade com criptografia. Para esse fim, utilizamos outras duas bibliotecas de Javascript: "JsonWebToken" e "Bcrypt.js", a primeira, como o nome sugere, é responsável pela geração dos tokens necessários no login dos usuários, já a última é necessária para a encriptação das senhas inseridas pelos usuários no ato de cadastro e de login.
+
+## Screenshots
+### Página Inicial
+![[pagina_inicial]](assets/adotaai-pagina_inicial.png)
+### Página de Bichinhos
+![[pagina_inicial]](assets/adotaai-pagina_bichinhos.png)
+### Página de Cadastro de Bichinhos
+![[pagina_inicial]](assets/adotaai-pagina_cadastro_bichinhos.png)
+### Página de Eventos
+![[pagina_inicial]](assets/adotaai-pagina_eventos.png)
+### Página de Cadastro de Eventos
+
+### Página de Login
+
+### Página de Cadastro
