@@ -61,9 +61,9 @@ https://adota-ai.herokuapp.com/
 ### Página de Cadastro de Eventos
 ![[pagina_inicial]](assets/adotaai-pagina_cadastro_eventos.png)
 ### Página de Login
-
+![[pagina_inicial]](assets/adotaai-pagina_login.png)
 ### Página de Cadastro
-
+![[pagina_inicial]](assets/adotaai-pagina_cadastro.png)
 
 ## Referências utilizadas na elaboração do projeto
 * https://github.com/IF977/if977 (Repositório da cadeira de Engenharia de Software)
