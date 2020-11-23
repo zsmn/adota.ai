@@ -3,7 +3,6 @@ const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const User = require('../models/user.js');
 
-const authConfig = require('../config/auth.json')
 const router = express.Router();
 
 router.post('/register', async (req, res) => {
@@ -38,7 +37,7 @@ router.post('/authenticate', async (req, res) => {
 
         user.password = undefined;
 
-        const token = jwt.sign({ id: user.id }, authConfig.secret, {
+        const token = jwt.sign({ id: user.id }, process.env.SECRET_MD5, {
             expiresIn: 86400
         });
 
@@ -57,7 +56,7 @@ router.post('/requestuser', async (req, res) => {
 
     var id = null;
     try{
-        jwt.verify(token, authConfig.secret, (err, decoded) => {
+        jwt.verify(token, process.env.SECRET_MD5, (err, decoded) => {
             if (err)
                 return res.status(401).send({error: 'Token invalid'});
     
