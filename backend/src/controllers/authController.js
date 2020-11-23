@@ -16,7 +16,7 @@ router.post('/register', async (req, res) => {
 
         user.password = undefined;
 
-        return res.send({ user });
+        return res.status(200).send({ user });
     }
     catch (err) {
         return res.status(400).send({ error: 'Registration failed' });
@@ -41,7 +41,7 @@ router.post('/authenticate', async (req, res) => {
             expiresIn: 86400
         });
 
-        res.send({ user, token });
+        res.status(200).send({ user, token });
     }
     catch (err){
         return res.status(400).send({ error: 'Login failed'});
@@ -64,7 +64,7 @@ router.post('/requestuser', async (req, res) => {
         })
 
         const user = await User.findOne({ _id: id });
-        res.send({ username: user.username });
+        res.status(200).send({ username: user.username });
     }
     catch (err){
         return res.status(400).send({ error: 'Could not find user' });
