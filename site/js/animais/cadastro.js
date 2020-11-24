@@ -1,3 +1,7 @@
+function redirect(){
+  window.location.href = "https://adota-ai.herokuapp.com/bichinhos.html";
+}
+
 function readFileAsync(file) {
     return new Promise((resolve, reject) => {
       let reader = new FileReader();
@@ -43,7 +47,10 @@ async function sendAnimaisInfo() {
     })
     .then(resp => {
       if(resp)
-        if(resp.statusText == "OK") alertify.success('Animal cadastrado com sucesso');
+        if(resp.statusText == "OK"){
+          alertify.success('Animal cadastrado com sucesso, redirecionando...');
+          setTimeout(redirect, 2000)
+        }
     });
 }
 
