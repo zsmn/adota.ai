@@ -7,7 +7,6 @@ const router = express.Router();
 router.post('/register', authMiddleware, async (req, res) => {
     try{
         const event = await Event.create(req.body);
-
         return res.status(200).send({ event });
     }
     catch (err) {

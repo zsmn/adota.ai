@@ -5,6 +5,7 @@ const Pet = require('../models/pets.js');
 const router = express.Router();
 
 router.post('/register', authMiddleware, async (req, res) => {
+    req.body.userId = req.userId
     try{
         const pet = await Pet.create(req.body);
 
@@ -15,9 +16,30 @@ router.post('/register', authMiddleware, async (req, res) => {
     }
 });
 
+router.delete('/delete/:petId', authMiddleware, async (req, res) => {
+    const _id = req.params.petId.toString()
+
+    try{
+        const pet = await Pet.findOne({_id: _id})
+
+        if(!pet) res.status(400).send({ error: 'Could not find an pet with that id '});
+
+        if(pet.userId == req.userId){
+            await Pet.updateOne({ _id: _id }, { $set: { deleted: true }})
+            res.status(200).send({ pet });
+        }
+        else{
+            res.status(401).send({ error: 'You dont have authorization for that' });
+        }
+    }
+    catch (err) {
+        res.status(400).send({ error: 'Request failed' });
+    }
+});
+
 router.get('/', async (req, res) => {
     try{
-        const pets = await Pet.find({});
+        const pets = await Pet.find({ deleted: false });
 
         return res.status(200).send({ pets });
     }
