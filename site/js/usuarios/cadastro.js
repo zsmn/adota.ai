@@ -30,8 +30,12 @@ async function sendUsuariosInfo() {
         password: document.getElementById('password').value, 
         email: document.getElementById('email').value
     })
+    .catch(err => {
+      alertify.error('Erro ao cadastrar');
+    })
     .then(resp => {
-      console.log(resp.statusText)
+      if(resp)
+        if(resp.statusText == "OK") alertify.success('Cadastrado com sucesos');
     });
 }
 

@@ -38,8 +38,12 @@ async function sendAnimaisInfo() {
         'Authorization': localStorage.getItem('token')
       }
     })
+    .catch(err => {
+      alertify.error('Erro ao cadastrar o animal');
+    })
     .then(resp => {
-      console.log(resp.statusText)
+      if(resp)
+        if(resp.statusText == "OK") alertify.success('Animal cadastrado com sucesso');
     });
 }
 

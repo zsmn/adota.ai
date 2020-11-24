@@ -38,8 +38,12 @@ async function sendEventosInfo() {
       }
     }
     )
+    .catch(err => {
+      alertify.error('Erro ao cadastrar o evento');
+    })
     .then(resp => {
-      console.log(resp.statusText)
+      if(resp)
+        if(resp.statusText == "OK") alertify.success('Evento cadastrado com sucesso');
     });
 }
 
