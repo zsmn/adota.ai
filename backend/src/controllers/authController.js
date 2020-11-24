@@ -37,7 +37,7 @@ router.post('/authenticate', async (req, res) => {
 
         user.password = undefined;
 
-        const token = jwt.sign({ id: user.id }, process.env.SECRET_MD5 || "142ce5c4dfd1de51af8ffb8ed21b910c", {
+        const token = jwt.sign({ id: user.id }, process.env.SECRET_MD5, {
             expiresIn: 86400
         });
 
@@ -56,7 +56,7 @@ router.post('/requestuser', async (req, res) => {
 
     var id = null;
     try{
-        jwt.verify(token, process.env.SECRET_MD5 || "142ce5c4dfd1de51af8ffb8ed21b910c", (err, decoded) => {
+        jwt.verify(token, process.env.SECRET_MD5, (err, decoded) => {
             if (err)
                 return res.status(401).send({error: 'Token invalid'});
     
