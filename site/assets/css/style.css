@@ -936,6 +936,17 @@ section {
   background-color: #5ba5a1;
 }
 
+/*informations*/
+.vartext{
+  padding-top: 2cm;
+  padding-left: 1cm;
+  
+}
+
+.paragtext{
+  padding-left: 1cm;
+}
+
 /* STRUCTURE */
 .wrapper {
   display: flex;
