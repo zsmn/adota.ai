@@ -48,7 +48,7 @@ async function sendEventosInfo() {
     .then(resp => {
       if(resp)
         if(resp.statusText == "OK"){
-          alertify.success('Evento cadastrado com sucesso');
+          alertify.success('Evento cadastrado com sucesso, redirecionando...');
           setTimeout(redirect, 2000)
         }
     });
