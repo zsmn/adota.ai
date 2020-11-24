@@ -628,6 +628,13 @@ section {
   margin-right: 15px;
 }
 
+.card-img-titulo-top {
+  height: 220px;
+  width: 250px;
+  margin-left: 5px;
+  margin-right: 15px;
+}
+
 .card-title {
   margin-top: -10px;
 }
