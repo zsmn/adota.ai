@@ -22,6 +22,14 @@ const EventSchema = new mongoose.Schema({
         contentType: Buffer,
         required: true
     },
+    userId: {
+        type: String,
+        required: true
+    },
+    deleted: {
+        type: Boolean,
+        default: false
+    },
     createdAt: {
         type: Date,
         default: Date.now

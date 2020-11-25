@@ -7,7 +7,6 @@ app.use(bodyParser.json({limit: '3mb'}));
 app.use(bodyParser.urlencoded({limit: '3mb', extended: true}));
 app.use(cors());
 
-
 require('./controllers/authController')(app);
 require('./controllers/petController')(app);
 require('./controllers/eventController')(app);

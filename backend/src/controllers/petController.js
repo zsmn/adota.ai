@@ -6,6 +6,7 @@ const router = express.Router();
 
 router.post('/register', authMiddleware, async (req, res) => {
     req.body.userId = req.userId
+    
     try{
         const pet = await Pet.create(req.body);
 
