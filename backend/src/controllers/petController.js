@@ -16,7 +16,7 @@ router.post('/register', authMiddleware, async (req, res) => {
     }
 });
 
-router.delete('/delete/:petId', authMiddleware, async (req, res) => {
+router.post('/delete/:petId', authMiddleware, async (req, res) => {
     const _id = req.params.petId.toString()
 
     try{
