@@ -2,6 +2,40 @@ function redirect(){
   window.location.href = "https://adota-ai.herokuapp.com/bichinhos.html";
 }
 
+function checkPhoto(target){
+	var fileUpload = target;
+    var regex = new RegExp("([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.png)$");
+    if (regex.test(fileUpload.value.toLowerCase())) {
+        if (typeof (fileUpload.files) != "undefined") {
+            var reader = new FileReader();
+            reader.readAsDataURL(fileUpload.files[0]);
+            reader.onload = function (e) {
+                var image = new Image();
+                image.src = e.target.result;
+                image.onload = function () {
+                    var height = this.height;
+                    var width = this.width;
+                    if (height > 640 || width > 480) {
+                    	fileUpload.value = "";
+                        alert("You can upload max an 640x480 photo size.");
+                        return false;
+                    }else{
+                        return true;
+                    }
+                };
+            }
+        } else {
+        	fileUpload.value = "";
+            alert("This browser does not support HTML5.");
+            return false;
+        }
+    } else {
+    	fileUpload.value = "";
+        alert("Please select a valid Image file.");
+        return false;
+    }
+}
+
 function readFileAsync(file) {
     return new Promise((resolve, reject) => {
       let reader = new FileReader();

@@ -66,10 +66,10 @@
             <input type="text" id="info-extra" class="fadeIn fourth" name="login" placeholder="Informações Extras">
             <input type="text" id="contato-evento" class="fadeIn fourth" name="login" placeholder="Contato do Evento">
             <p style="text-align:center;"> Selecione 4 fotos do evento </p>
-            <input type="file" id="evento-foto1" name="foto1" style="margin-top: 5px; margin-bottom: 5px;">
-            <input type="file" id="evento-foto2" name="foto2" style="margin-top: 5px; margin-bottom: 5px;">
-            <input type="file" id="evento-foto3" name="foto3" style="margin-top: 5px; margin-bottom: 5px;">
-            <input type="file" id="evento-foto4" name="foto4" style="margin-top: 5px; margin-bottom: 5px;">
+            <input type="file" id="evento-foto1" name="foto1" onchange="checkPhoto(this)" style="margin-top: 5px; margin-bottom: 5px;">
+            <input type="file" id="evento-foto2" name="foto2" onchange="checkPhoto(this)" style="margin-top: 5px; margin-bottom: 5px;">
+            <input type="file" id="evento-foto3" name="foto3" onchange="checkPhoto(this)" style="margin-top: 5px; margin-bottom: 5px;">
+            <input type="file" id="evento-foto4" name="foto4" onchange="checkPhoto(this)" style="margin-top: 5px; margin-bottom: 5px;">
             <input type="submit" style="background: #1e68b1; margin-top: 20px;" class="fadeIn fifth" value="Registrar Evento">
           </form>
       
