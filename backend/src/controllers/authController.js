@@ -64,7 +64,7 @@ router.post('/requestuser', async (req, res) => {
         })
 
         const user = await User.findOne({ _id: id });
-        res.status(200).send({ username: user.username });
+        res.status(200).send({ _id: user._id, username: user.username });
     }
     catch (err){
         return res.status(400).send({ error: 'Could not find user' });
