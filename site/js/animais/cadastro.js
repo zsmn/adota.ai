@@ -4,7 +4,7 @@ function redirect(){
 
 function checkPhoto(target){
     var fileUpload = target;
-    var regex = nnew RegExp("([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.png)$");
+    var regex = new RegExp("([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.png)$");
     if (regex.test(fileUpload.value.toLowerCase())) {
         if (typeof (fileUpload.files) != "undefined") {
             var reader = new FileReader();
