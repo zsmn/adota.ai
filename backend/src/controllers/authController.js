@@ -78,13 +78,8 @@ router.post('/delete', authMiddleware, async (req, res) => {
 
         if(!user) res.status(400).send({ error: 'Could not find an user with that id' });
 
-        if(user.userId == req.userId){
-            await User.deleteOne({ _id: req.userId })
-            res.status(200).send({ user });
-        }
-        else{
-            res.status(401).send({ error: 'You dont have authorization for that' });
-        }
+        await User.deleteOne({ _id: req.userId })
+        res.status(200).send({ user });
     }
     catch (err) {
         res.status(400).send({ error: 'Request failed' });
