@@ -1,7 +1,9 @@
 const express = require('express');
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
-const User = require('../models/user.js');
+const User = require('../models/user.js')
+const Event = require('../models/events.js');;
+const Pet = require('../models/pets.js');
 const authMiddleware = require('../middlewares/auth');
 
 const router = express.Router();
@@ -78,7 +80,11 @@ router.post('/delete', authMiddleware, async (req, res) => {
 
         if(!user) res.status(400).send({ error: 'Could not find an user with that id' });
 
+        // Delete user and pets & events associated to him
         await User.deleteOne({ _id: req.userId })
+        await Pet.updateOne({ userId: req.userId }, { $set: { deleted: true }})
+        await Event.updateOne({ userId: req.userId }, { $set: { deleted: true }})
+
         res.status(200).send({ user });
     }
     catch (err) {
