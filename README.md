@@ -5,7 +5,7 @@
 
 
 ## Objetivo
-* O objetivo do projeto é construir uma aplicação (no formato MVC), que seja capaz de solucionar ou mitigar um problema que esteja presente no mundo real.
+* O objetivo do projeto é construir uma aplicação (no formato MVP), que seja capaz de solucionar ou mitigar um problema que esteja presente no mundo real.
 * Como tema escolhido, nosso grupo optou pelo abandono e adoção de animais de estimação (com foco em cães e gatos).
 * Nossa aplicação se chama "Adota.ai" e almeja ser uma plataforma capaz de facilitar a divulgação de animais de estimação disponíveis para adoção bem como a divulgação de eventos voltados para a prática de adoção. Sendo assim, nossa missão é tentar fornecer um lar a maior quantidade de animais de estimação em estado de abandono possível.
 
