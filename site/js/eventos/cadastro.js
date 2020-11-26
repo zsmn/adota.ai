@@ -1,5 +1,5 @@
 function redirect(){
-  window.location.href = "https://adota-ai.herokuapp.com/bichinhos.html";
+  window.location.href = "https://adota-ai.herokuapp.com/eventos.html";
 }
 
 function checkPhoto(target){
