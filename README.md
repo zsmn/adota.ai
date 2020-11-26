@@ -34,6 +34,7 @@ https://adota-ai.herokuapp.com/
 * JsonWebToken
 * Bcrypt.js
 * Heroku
+* Cypress
 
 
 ## Explicações sobre decisões tomadas no decorrer do projeto
@@ -48,6 +49,9 @@ https://adota-ai.herokuapp.com/
 
 ### Escolha de ferramenta para deploy
 * Para isso, optamos por usar o Heroku por sua simplicidade e facilidade e pelo fato de um dos integrantes da equipe já possuir uma certa experiência com o seu uso.
+
+### Escolha de ferramenta para realização de testes End-to-End
+* Para essa finalidade, escolhemos utilizar a ferramente Cypress, seguindo uma recomendação do professor. Outros fatores que fizeram com que a equipe optasse por sua utilização foram: a facilidade de utilização da ferramenta, a abundância de tutoriais a envolvendo e o fato de os integrantes da equipe já terem alguma familiaridade com Cypress, pois já tinhamos utilizado ela para a realização de um Hackenge proposto anteriormente na disciplina.
 
 ## Screenshots
 ### Página Inicial
@@ -71,3 +75,4 @@ https://adota-ai.herokuapp.com/
 * https://www.youtube.com/watch?v=BN_8bCfVp88&list=PL85ITvJ7FLoiXVwHXeOsOuVppGbBzo2dp (Série de tutoriais API NodeJS + Express + MongoDB, ministrada pela Rocketseat)
 * http://zetcode.com/javascript/axios/ (Tutorial de como usar o Axios com Javascript)
 * https://medium.com/@shalandy/deploy-git-subdirectory-to-heroku-ea05e95fce1f (Tutorial de como dar um deploy pelo Heroku a partir de um sub-repositório do GitHub)
+* https://www.cypress.io/ (Site Oficial do Framework Cypress)
