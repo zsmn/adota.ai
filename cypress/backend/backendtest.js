@@ -72,7 +72,7 @@ describe('Adota.ai Backend', function() {
       })
       .then((response) => {
         expect(response.status).to.eq(200)
-        expect(response.status).to.not.have.property('error')
+        expect(response.body).to.not.have.property('error')
       })
     })
 
