@@ -185,3 +185,4 @@ async function getAnimalsInfo(document){
 document.addEventListener('DOMContentLoaded', () => {    
     getAnimalsInfo(document)
 })
+//
