@@ -2,6 +2,7 @@ const express = require('express');
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const User = require('../models/user.js');
+const authMiddleware = require('../middlewares/auth');
 
 const router = express.Router();
 
@@ -70,5 +71,24 @@ router.post('/requestuser', async (req, res) => {
         return res.status(400).send({ error: 'Could not find user' });
     }
 })
+
+router.post('/delete', authMiddleware, async (req, res) => {
+    try{
+        const user = await User.findOne({_id: req.userId})
+
+        if(!user) res.status(400).send({ error: 'Could not find an user with that id' });
+
+        if(user.userId == req.userId){
+            await User.deleteOne({ _id: req.userId })
+            res.status(200).send({ user });
+        }
+        else{
+            res.status(401).send({ error: 'You dont have authorization for that' });
+        }
+    }
+    catch (err) {
+        res.status(400).send({ error: 'Request failed' });
+    }
+});
 
 module.exports = app => app.use('/auth', router);
