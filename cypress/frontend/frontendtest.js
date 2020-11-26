@@ -143,3 +143,35 @@ describe('Adota.ai Event register', () => {
         cy.get('.ajs-success')
     })
 })
+
+describe('Adota.ai Removing Registered User (with backend route)', () => {
+    /// loging in backend to get token
+    var logToken = ''
+    it('login with ' + userName + ':' + password, () => {
+        cy.request({method: 'POST', url: 'https://adota-ai-backend.herokuapp.com/auth/authenticate', failOnStatusCode: true,
+            body:{
+            username: userName,
+            password: password
+            }
+        })
+        .then((response) => {
+            expect(response.status).to.eq(200)
+            expect(response.body).to.not.have.property('error')
+            expect(response.body).to.have.property('token')
+            logToken = response.body.token
+        })
+    })
+
+    /// deleting registered user
+    it('deleting ' + userName + ':' + password, () => {
+        cy.request({method: 'POST', url: 'https://adota-ai-backend.herokuapp.com/auth/delete', 
+          headers: { 
+            authorization: 'Bearer ' + logToken
+          }
+        })
+        .then((response) => {
+          expect(response.status).to.eq(200)
+          expect(response.body).to.not.have.property('error')
+        })
+      })
+})
