@@ -109,6 +109,20 @@ describe('Adota.ai Backend', function() {
       })
     })
 
+    /// requestUser route with registered user (check if everything is ok)
+    it('requestUser route (check if result = ' + login + ')', () => {
+      cy.request({method: 'POST', url: 'https://adota-ai-backend.herokuapp.com/auth/requestuser', failOnStatusCode: true,
+        body: { 
+          token: 'Bearer ' + logToken
+        }
+      })
+      .then((response) => {
+        expect(response.status).to.eq(200)
+        expect(response.body).to.not.have.property('error')
+        expect(response.body.username).to.be.equal(login)
+      })
+    })
+
     /// registering bichinho
     var petId = ''
     it('register one bichinho', () => {
