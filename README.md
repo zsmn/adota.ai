@@ -14,6 +14,10 @@
 https://adota-ai.herokuapp.com/
 
 
+## Link para o vídeo de demonstração da plataforma (Screencast)
+https://youtu.be/gzm98-HkJVw
+
+
 ## Wiki
 * Para uma documentação mais detalhada e separada em seções (FrontEnd e BackEnd): https://github.com/zsmn/adota.ai/wiki
 
