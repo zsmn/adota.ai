@@ -1,5 +1,3 @@
-//Verificar se teremos que usar o metodo Array.from() de novo.
-
 var contentBd
 var finalBd
 var auxiliar = ""
@@ -24,7 +22,6 @@ async function getAnimalsInfo(document){
         contentBd = resp.data;
         finalBd = contentBd['pets'] //Aqui, eu consigo acessar cada um dos pets cadastrados em nosso Bd.
        
-        //Fazendo a conversão de um Array para u JSON
         var carouselSlides = document.getElementById("carousel-inner")
         var quantityOfCardAnimals = 0
         var allCardAnimals = Array.from(document.querySelectorAll('.card'))
@@ -47,14 +44,10 @@ async function getAnimalsInfo(document){
         var FOTO_ANIMAL_3 = ""
         var ID_DONO_ANIMAL = ""
         
-        //Verificar se teremos que usar o metodo Array.from() de novo.
-        //Verificar se teremos que usar o metodo Array.from() de novo.
-
         var allTableCard = Array.from(document.querySelectorAll('.table-card-bichinhos'))
 
         var j = 10000;
         for(var i = 0; i < finalBd.length; i++, j++){
-            //console.log("DALEEE")
             FOTO_ANIMAL = finalBd[i]["photos"][0]
             NOME_ANIMAL = finalBd[i]["animalName"]
             LOCALIDADE_ANIMAL = finalBd[i]["locality"]
@@ -148,7 +141,6 @@ async function getAnimalsInfo(document){
             petPhoto2.push(animalPhoto2)
             petPhoto3.push(animalPhoto3)
             arrayBotoesVejaMais[i].onclick = function () {
-                //console.log("this.id veja mais = " + this.id);
                 Swal.fire({
                     title: "<h2>" + petNames[this.id] + "</h2>",
                     html: "<div><img src="+petPhoto1[this.id]+" class=\"card-img-titulo-top\" alt=\"Imagem 1 não adicionada\"></div> <p><h5> <strong>Localidade</strong>:  " + petLocalities[this.id] + "</h5></p> <p><h5><strong>Porte</strong>:  " + petSize[this.id] + "</h5></p> <p><h5><strong>Sexo</strong>:  " + petSex[this.id] + "</h5></p> <p><h5><strong>Idade</strong>:  " + petAge[this.id] + "</h5></p> <p><h5><strong>Informações</strong>:  " + petInfo[this.id] + "</h5></p> <p><h5><strong>Contato</strong>:  " + petContact[this.id] + "</h5></p> <div><img src="+petPhoto2[this.id]+" class=\"card-img-top\" alt=\"Imagem 2 não adicionada\"> <img src="+petPhoto3[this.id]+" class=\"card-img-top\" alt=\"Imagem 3 não adicionada\"></div>",
@@ -185,4 +177,3 @@ async function getAnimalsInfo(document){
 document.addEventListener('DOMContentLoaded', () => {    
     getAnimalsInfo(document)
 })
-//
