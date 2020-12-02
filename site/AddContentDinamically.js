@@ -1,5 +1,3 @@
-//Verificar se teremos que usar o metodo Array.from() de novo.
-
 var contentBd
 var finalBd
 var userid = "-1"
@@ -48,8 +46,6 @@ async function getEventsInfo(document){
         var date1 = ""
         var aux = []
         var year = ""
-        //Verificar se teremos que usar o metodo Array.from() de novo.
-        //Verificar se teremos que usar o metodo Array.from() de novo.
 
         for(var i = 0; i < finalBd.length; i++){
             IMAGEM_PRINCIPAL_EVENTO = finalBd[i]['photos'][0]
@@ -63,8 +59,6 @@ async function getEventsInfo(document){
             //aux[2] -> day
             year = aux[0].substr(2,2)
             DATA_DO_EVENTO = aux[2] + "/" + aux[1] + "/" + year
-            //console.log("data do evento: " + DATA_DO_EVENTO)
-            /************************************************/
             DESCRICAO_DO_EVENTO = finalBd[i]['generalInfo']
             DESCRICAO_DO_EVENTO_2 = finalBd[i]['extraInfo']
             PHOTO2_DO_EVENTO = finalBd[i]['photos'][1]
@@ -80,9 +74,6 @@ async function getEventsInfo(document){
                 }else{ //Nao mostro o botao de deletar
                     carouselSlides.innerHTML += "<div class=\"carousel-item "+gamb+" \"> <table class=\"table-card-eventos\" align=\"center\" style=\"padding: 20px;\"><tr class=\"identifier-row\">  <td><div class=\"card-eventos\" style=\"width: 18rem;\"><div class=\"card-body-eventos\"><table class=\"content-of-event-card\"><tr><img class=\"card-eventos-img-top\" src="+IMAGEM_PRINCIPAL_EVENTO+" alt=\"Card image cap\"></tr><tr><td><div class=\"event-date-box\"><p class=\"event-date\"> "+DATA_DO_EVENTO+" </p></div></td><td style=\"margin-right: 5px;\"><div class=\"event-descript1-box\"><p class=\"event-descript1\"> "+DESCRICAO_DO_EVENTO+" </p></div></td></tr></table><div class=\"event-descript2\"><p> "+DESCRICAO_DO_EVENTO_2+" </p></div><table class=\"event-photos\"><tr><td><img class=\"event-photo\" src="+PHOTO2_DO_EVENTO+" alt=\"Here goes an image!\"></td><td><img class=\"event-photo\" src="+PHOTO3_DO_EVENTO+" alt=\"Here goes an image!\"></td><td><img class=\"event-photo\" src="+PHOTO4_DO_EVENTO+" alt=\"Here goes an image!\"></td></tr></table><div class=\"event-contact\"><center> <p> "+CONTATO_DO_EVENTO+" </p> </center></div> <div> <center><a hidden href=\"#\" class=\"btn btn-primary botao-deletar\" id="+i.toString()+" style=\"background-color: red; height: 40px; color: black;\"> Deletar </a></center> </div>  </div></div></td>  </tr></table></div>"
                 }
-                //allCarouselItem = Array.from(document.querySelectorAll('.carousel-item'))
-                //var lastCarouselItem = allCarouselItem[allCarouselItem.length - 1]
-                //lastCarouselItem.innerHTML += "<div style=\"background-color: red; width: 50px; height: 50px;\"> </div>"
             }
             else{ //Tem um ou dois espacos vagos na ultima pagina.
                 if(ID_DONO_EVENTO == userid){ //Mostro o botao de deletar
@@ -93,9 +84,7 @@ async function getEventsInfo(document){
                     allCarouselTr = Array.from(document.querySelectorAll('.identifier-row'))
                     var lastTr = allCarouselTr[allCarouselTr.length - 1]
                     lastTr.innerHTML += "<td><div class=\"card-eventos\" style=\"width: 18rem;\"><div class=\"card-body-eventos\"><table class=\"content-of-event-card\"><tr><img class=\"card-eventos-img-top\" src="+IMAGEM_PRINCIPAL_EVENTO+" alt=\"Card image cap\"></tr><tr><td><div class=\"event-date-box\"><p class=\"event-date\"> "+DATA_DO_EVENTO+" </p></div></td><td style=\"margin-right: 5px;\"><div class=\"event-descript1-box\"><p class=\"event-descript1\"> "+DESCRICAO_DO_EVENTO+" </p></div></td></tr></table><div class=\"event-descript2\"><p> "+DESCRICAO_DO_EVENTO_2+" </p></div><table class=\"event-photos\"><tr><td><img class=\"event-photo\" src="+PHOTO2_DO_EVENTO+" alt=\"Here goes an image!\"></td><td><img class=\"event-photo\" src="+PHOTO3_DO_EVENTO+" alt=\"Here goes an image!\"></td><td><img class=\"event-photo\" src="+PHOTO4_DO_EVENTO+" alt=\"Here goes an image!\"></td></tr></table><div class=\"event-contact\"><center> <p> "+CONTATO_DO_EVENTO+" </p> </center></div> <div><center><a hidden href=\"#\" class=\"btn btn-primary botao-deletar\" id="+i.toString()+" style=\"background-color: red; height: 40px; color: black;\"> Deletar </a></center></div> </div></div></td>"
-                }
-                //var lastCarouselItem = allCarouselItem[allCarouselItem.length - 1]
-                //lastCarouselItem.append("<div style=\"background-color: red; width: 50px; height: 50px;\"> </div>")    
+                }   
             }
         }
         var eventIDs = [];
